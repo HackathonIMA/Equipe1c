@@ -14,8 +14,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name="summ_secretaria")
 @Entity
 public class DadosSecretaria implements Serializable {
-	private String nome;
-	
+	private String secretaria;
 	
 	private BigDecimal anosolicitacao ;
 	private BigDecimal mesSolicitacao ;
@@ -43,12 +42,7 @@ public class DadosSecretaria implements Serializable {
 	private Long pkey;
 	
 	
-	public String getNome() {
-		return nome;
-	}
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+	
 	public BigDecimal getAnosolicitacao() {
 		return anosolicitacao;
 	}
@@ -168,6 +162,12 @@ public class DadosSecretaria implements Serializable {
 	}
 	public void setMed_diff_cad_conc(BigDecimal med_diff_cad_conc) {
 		this.med_diff_cad_conc = med_diff_cad_conc;
+	}
+	public String getSecretaria() {
+		return secretaria;
+	}
+	public void setSecretaria(String secretaria) {
+		this.secretaria = secretaria;
 	}
 	
 }
