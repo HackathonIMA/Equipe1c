@@ -46,7 +46,7 @@ public class DadosSecretariaRepository {
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<DadosSecretaria> criteria = cb.createQuery(DadosSecretaria.class);
         Root<DadosSecretaria> dados = criteria.from(DadosSecretaria.class);        
-        criteria.select(dados).where(cb.equal(dados.get("secretaria"), nome)).where(cb.equal(dados.get("anosolicitacao"), ano)).where(cb.equal(dados.get("mesSolicitacao"), mes));
+        criteria.select(dados).where(cb.equal(dados.get("secretaria"), nome),cb.equal(dados.get("anosolicitacao"), ano),cb.equal(dados.get("mesSolicitacao"), mes));
         return em.createQuery(criteria).getSingleResult();
     }
 
