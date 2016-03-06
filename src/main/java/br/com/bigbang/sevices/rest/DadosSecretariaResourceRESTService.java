@@ -6,6 +6,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
@@ -21,8 +22,9 @@ public class DadosSecretariaResourceRESTService {
 	private DadosSecretariaRepository repository;
 
 	@GET
+	@Path("/{secretaria}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public DadosSecretaria listaTodos(@QueryParam("secretaria") String secretaria,@QueryParam("ano") int ano,@QueryParam("mes") int mes) {
+	public DadosSecretaria listaTodos(@PathParam("secretaria") String secretaria,@QueryParam("ano") int ano,@QueryParam("mes") int mes) {
 		return repository.buscaPorNome(secretaria, ano, mes);
 	}
 	@GET
