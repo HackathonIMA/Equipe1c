@@ -35,13 +35,13 @@ public class DadosSecretariaRepository {
 
  
 
-    public DadosSecretaria buscaPorNome(String nome) {
+    public List<DadosSecretaria> buscaPorNome(String nome) {
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<DadosSecretaria> criteria = cb.createQuery(DadosSecretaria.class);
         Root<DadosSecretaria> dados = criteria.from(DadosSecretaria.class);
         
         criteria.select(dados).where(cb.equal(dados.get("secretaria"), nome)).orderBy(cb.asc(dados.get("anosolicitacao")),cb.asc(dados.get("mesSolicitacao")));
-        return em.createQuery(criteria).getSingleResult();
+        return em.createQuery(criteria).getResultList();
     }
     public DadosSecretaria buscaPorNome(String nome,int ano,int mes) {
         CriteriaBuilder cb = em.getCriteriaBuilder();

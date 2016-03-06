@@ -29,7 +29,7 @@ public class DadosSecretariaResourceRESTService {
 	@GET
 	@Path("/{secretaria}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public DadosSecretaria listaTodos(@PathParam("secretaria") String secretaria) {
+	public List<DadosSecretaria> listaTodos(@PathParam("secretaria") String secretaria) {
 		return repository.buscaPorNome(secretaria);
 	}
 	@GET
