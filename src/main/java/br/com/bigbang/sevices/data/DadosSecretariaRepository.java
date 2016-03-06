@@ -40,7 +40,7 @@ public class DadosSecretariaRepository {
         CriteriaQuery<DadosSecretaria> criteria = cb.createQuery(DadosSecretaria.class);
         Root<DadosSecretaria> dados = criteria.from(DadosSecretaria.class);
         
-        criteria.select(dados).where(cb.equal(dados.get("secretaria"), nome)).orderBy(cb.asc(dados.get("ano")),cb.asc(dados.get("mes")));
+        criteria.select(dados).where(cb.equal(dados.get("secretaria"), nome)).orderBy(cb.asc(dados.get("anosolicitacao")),cb.asc(dados.get("mesSolicitacao")));
         return em.createQuery(criteria).getSingleResult();
     }
     public DadosSecretaria buscaPorNome(String nome,int ano,int mes) {
@@ -55,7 +55,7 @@ public class DadosSecretariaRepository {
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<DadosSecretaria> criteria = cb.createQuery(DadosSecretaria.class);
         Root<DadosSecretaria> dados = criteria.from(DadosSecretaria.class);
-        criteria.select(dados).orderBy(cb.asc(dados.get("secretaria")),cb.asc(dados.get("ano")),cb.asc(dados.get("mes")));
+        criteria.select(dados).orderBy(cb.asc(dados.get("secretaria")),cb.asc(dados.get("anosolicitacao")),cb.asc(dados.get("mesSolicitacao")));
         return em.createQuery(criteria).getResultList();
     }
 }
