@@ -41,7 +41,7 @@ public class DadosSecretaria implements Serializable {
 	@GeneratedValue
 	private Long pkey;
 	
-	public String getMesAno(){
+	public String getAnoMes(){
 		return ""+anosolicitacao.intValue()+"/"+mesSolicitacao.intValue();
 	}
 	
