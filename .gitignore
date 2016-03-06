@@ -1,1 +1,9 @@
 /target/
+
+/.project
+
+/.settings
+/.cheatsheet.xml
+/.classpath
+/.factorypath
+/diagrams

@@ -16,14 +16,9 @@
  */
 package br.com.bigbang.sevices.service;
 
-import java.util.List;
-
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
 
 import br.com.bigbang.sevices.model.Monitoramento;
 
