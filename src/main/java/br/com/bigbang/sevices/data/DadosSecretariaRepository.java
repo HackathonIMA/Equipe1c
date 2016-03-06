@@ -39,14 +39,14 @@ public class DadosSecretariaRepository {
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<DadosSecretaria> criteria = cb.createQuery(DadosSecretaria.class);
         Root<DadosSecretaria> dados = criteria.from(DadosSecretaria.class);        
-        criteria.select(dados).where(cb.equal(dados.get("nome"), nome));
+        criteria.select(dados).where(cb.equal(dados.get("secretaria"), nome));
         return em.createQuery(criteria).getSingleResult();
     }
     public DadosSecretaria buscaPorNome(String nome,int ano,int mes) {
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<DadosSecretaria> criteria = cb.createQuery(DadosSecretaria.class);
         Root<DadosSecretaria> dados = criteria.from(DadosSecretaria.class);        
-        criteria.select(dados).where(cb.equal(dados.get("nome"), nome)).where(cb.equal(dados.get("anosolicitacao"), ano)).where(cb.equal(dados.get("mesSolicitacao"), mes));
+        criteria.select(dados).where(cb.equal(dados.get("secretaria"), nome)).where(cb.equal(dados.get("anosolicitacao"), ano)).where(cb.equal(dados.get("mesSolicitacao"), mes));
         return em.createQuery(criteria).getSingleResult();
     }
 
@@ -54,7 +54,7 @@ public class DadosSecretariaRepository {
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<DadosSecretaria> criteria = cb.createQuery(DadosSecretaria.class);
         Root<DadosSecretaria> dados = criteria.from(DadosSecretaria.class);
-        criteria.select(dados).orderBy(cb.asc(dados.get("nome")));
+        criteria.select(dados).orderBy(cb.asc(dados.get("secretaria")));
         return em.createQuery(criteria).getResultList();
     }
 }
