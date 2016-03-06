@@ -17,6 +17,9 @@
 package br.com.bigbang.sevices.service;
 
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -37,9 +40,15 @@ public class ContestaAtendimentoService {
     private DadosSecretariaRepository dadosSecretariaRepository;
     @Inject 
     private AtendimentoRepository atendimentoRepository;
-    public void contesta(Contestacao contestacao) {
+    public void contesta(Contestacao contestacao) throws Exception  {
     	Atendimento atendimento = atendimentoRepository.buscaPorID(contestacao.getSolicitation_id());
-    	DadosSecretaria dadosSecretaria = dadosSecretariaRepository.buscaPorNome(atendimento.getSecretaria()).get(0);
+    	
+    	SimpleDateFormat formater= new SimpleDateFormat("dd/MM/yyyy");
+    	Date dataCadastro = formater.parse(atendimento.getDataCadastro());
+    	Calendar calendar = Calendar.getInstance();
+    	calendar.setTime(dataCadastro);
+    	
+    	DadosSecretaria dadosSecretaria = dadosSecretariaRepository.buscaPorNome(atendimento.getSecretaria(),atendimento.getAnoSolicitacao().intValue(),calendar.get(Calendar.MONTH)+1);
     	dadosSecretaria.setQtdQuestionados(dadosSecretaria.getQtdQuestionados().add(BigDecimal.ONE));
     	em.merge(dadosSecretaria);
     	em.persist(contestacao);
