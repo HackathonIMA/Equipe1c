@@ -42,6 +42,7 @@ public class ContestaAtendimentoService {
     	DadosSecretaria dadosSecretaria = dadosSecretariaRepository.buscaPorNome(atendimento.getSecretaria()).get(0);
     	dadosSecretaria.setQtdQuestionados(dadosSecretaria.getQtdQuestionados().add(BigDecimal.ONE));
     	em.merge(dadosSecretaria);
+    	em.persist(contestacao);
     }
     
   
