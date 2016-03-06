@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @SuppressWarnings("serial")
 @XmlRootElement
-@Table(name="monitoramento")
+@Table
 @Entity
 public class Contestacao implements Serializable {
 	
