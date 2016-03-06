@@ -2,7 +2,6 @@ package br.com.bigbang.sevices.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -17,7 +16,7 @@ public class Atendimento implements Serializable {
 
 	@Id
 	private String ID;
-	private Date dataProviencia;
+	private String dataProviencia;
 	private String nomeLogradouro;
 	private String tipoLogradouro;
 	private String cep;
@@ -45,12 +44,7 @@ public class Atendimento implements Serializable {
 	public void setID(String iD) {
 		ID = iD;
 	}
-	public Date getDataProviencia() {
-		return dataProviencia;
-	}
-	public void setDataProviencia(Date dataProviencia) {
-		this.dataProviencia = dataProviencia;
-	}
+	
 	public String getNomeLogradouro() {
 		return nomeLogradouro;
 	}
@@ -177,6 +171,12 @@ public class Atendimento implements Serializable {
 	}
 	public void setDataCadastro(String dataCadastro) {
 		this.dataCadastro = dataCadastro;
+	}
+	public String getDataProviencia() {
+		return dataProviencia;
+	}
+	public void setDataProviencia(String dataProviencia) {
+		this.dataProviencia = dataProviencia;
 	}
 	
 }
