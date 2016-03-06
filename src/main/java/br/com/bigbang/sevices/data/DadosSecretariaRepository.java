@@ -42,12 +42,12 @@ public class DadosSecretariaRepository {
         criteria.select(dados).where(cb.equal(dados.get("nome"), nome));
         return em.createQuery(criteria).getSingleResult();
     }
-    public List<DadosSecretaria> buscaPorNome(String nome,int ano,int mes) {
+    public DadosSecretaria buscaPorNome(String nome,int ano,int mes) {
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<DadosSecretaria> criteria = cb.createQuery(DadosSecretaria.class);
         Root<DadosSecretaria> dados = criteria.from(DadosSecretaria.class);        
         criteria.select(dados).where(cb.equal(dados.get("nome"), nome)).where(cb.equal(dados.get("anosolicitacao"), ano)).where(cb.equal(dados.get("mesSolicitacao"), mes));
-        return em.createQuery(criteria).getResultList();
+        return em.createQuery(criteria).getSingleResult();
     }
 
     public List<DadosSecretaria> buscaTodos() {

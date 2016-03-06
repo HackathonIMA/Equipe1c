@@ -22,8 +22,13 @@ public class DadosSecretariaResourceRESTService {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<DadosSecretaria> listaTodos(@QueryParam("secretaria") String secretaria,@QueryParam("ano") int ano,@QueryParam("mes") int mes) {
+	public DadosSecretaria listaTodos(@QueryParam("secretaria") String secretaria,@QueryParam("ano") int ano,@QueryParam("mes") int mes) {
 		return repository.buscaPorNome(secretaria, ano, mes);
+	}
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<DadosSecretaria> listaTodos() {
+		return repository.buscaTodos();
 	}
 
 }
