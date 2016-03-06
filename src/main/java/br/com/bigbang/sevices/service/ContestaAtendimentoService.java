@@ -47,11 +47,12 @@ public class ContestaAtendimentoService {
     	Date dataCadastro = formater.parse(atendimento.getDataCadastro());
     	Calendar calendar = Calendar.getInstance();
     	calendar.setTime(dataCadastro);
-    	
+    	atendimento.setQuestionado(BigDecimal.ONE);
     	DadosSecretaria dadosSecretaria = dadosSecretariaRepository.buscaPorNome(atendimento.getSecretaria(),atendimento.getAnoSolicitacao().intValue(),calendar.get(Calendar.MONTH)+1);
     	dadosSecretaria.setQtdQuestionados(dadosSecretaria.getQtdQuestionados().add(BigDecimal.ONE));
     	em.merge(dadosSecretaria);
     	em.persist(contestacao);
+    	em.merge(atendimento);
     }
     
   
