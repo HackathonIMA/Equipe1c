@@ -40,7 +40,7 @@ public class ContestaAtendimentoService {
     public void contesta(Contestacao contestacao) {
     	Atendimento atendimento = atendimentoRepository.buscaPorID(contestacao.getSolicitation_id());
     	DadosSecretaria dadosSecretaria = dadosSecretariaRepository.buscaPorNome(atendimento.getSecretaria());
-    	dadosSecretaria.setQtd_chamados(dadosSecretaria.getQtd_chamados().add(BigDecimal.ONE));
+    	dadosSecretaria.setQtdQuestionados(dadosSecretaria.getQtdQuestionados().add(BigDecimal.ONE));
     	em.merge(dadosSecretaria);
     }
     
