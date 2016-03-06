@@ -21,10 +21,10 @@ public class Atendimento implements Serializable {
 	private String nomeLogradouro;
 	private String tipoLogradouro;
 	private String cep;
-	private Date dataConclusao;
-	private Date dataAtendimento;
-	private Date dataPrevisaoResposta;
-	private Date dataCadastro;
+	private String dataConclusao;
+	private String dataAtendimento;
+	private String dataPrevisaoResposta;
+	private String dataCadastro;
 	private String descricaoStatus;
 	private BigDecimal statusSolicitacao;
 	private String descricaoTipoSolicitacao;
@@ -69,30 +69,7 @@ public class Atendimento implements Serializable {
 	public void setCep(String cep) {
 		this.cep = cep;
 	}
-	public Date getDataConclusao() {
-		return dataConclusao;
-	}
-	public void setDataConclusao(Date dataConclusao) {
-		this.dataConclusao = dataConclusao;
-	}
-	public Date getDataAtendimento() {
-		return dataAtendimento;
-	}
-	public void setDataAtendimento(Date dataAtendimento) {
-		this.dataAtendimento = dataAtendimento;
-	}
-	public Date getDataPrevisaoResposta() {
-		return dataPrevisaoResposta;
-	}
-	public void setDataPrevisaoResposta(Date dataPrevisaoResposta) {
-		this.dataPrevisaoResposta = dataPrevisaoResposta;
-	}
-	public Date getDataCadastro() {
-		return dataCadastro;
-	}
-	public void setDataCadastro(Date dataCadastro) {
-		this.dataCadastro = dataCadastro;
-	}
+	
 	public String getDescricaoStatus() {
 		return descricaoStatus;
 	}
@@ -176,6 +153,30 @@ public class Atendimento implements Serializable {
 	}
 	public void setNumeroSolicitacao(BigDecimal numeroSolicitacao) {
 		this.numeroSolicitacao = numeroSolicitacao;
+	}
+	public String getDataConclusao() {
+		return dataConclusao;
+	}
+	public void setDataConclusao(String dataConclusao) {
+		this.dataConclusao = dataConclusao;
+	}
+	public String getDataAtendimento() {
+		return dataAtendimento;
+	}
+	public void setDataAtendimento(String dataAtendimento) {
+		this.dataAtendimento = dataAtendimento;
+	}
+	public String getDataPrevisaoResposta() {
+		return dataPrevisaoResposta;
+	}
+	public void setDataPrevisaoResposta(String dataPrevisaoResposta) {
+		this.dataPrevisaoResposta = dataPrevisaoResposta;
+	}
+	public String getDataCadastro() {
+		return dataCadastro;
+	}
+	public void setDataCadastro(String dataCadastro) {
+		this.dataCadastro = dataCadastro;
 	}
 	
 }
