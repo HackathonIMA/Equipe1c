@@ -16,22 +16,32 @@
  */
 package br.com.bigbang.sevices.service;
 
+import java.math.BigDecimal;
+
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
-import br.com.bigbang.sevices.model.Monitoramento;
+import br.com.bigbang.sevices.data.AtendimentoRepository;
+import br.com.bigbang.sevices.data.DadosSecretariaRepository;
+import br.com.bigbang.sevices.model.Atendimento;
+import br.com.bigbang.sevices.model.Contestacao;
+import br.com.bigbang.sevices.model.DadosSecretaria;
 
 @Stateless
-public class MonitoramentoRegitration {
+public class ContestaAtendimentoService {
 
     @Inject
-    private EntityManager em;
-
- 
-
-    public void criar(Monitoramento monitoramento) {
-        em.persist(monitoramento);
+    private EntityManager em; 
+    @Inject 
+    private DadosSecretariaRepository dadosSecretariaRepository;
+    @Inject 
+    private AtendimentoRepository atendimentoRepository;
+    public void contesta(Contestacao contestacao) {
+    	Atendimento atendimento = atendimentoRepository.buscaPorID(contestacao.getSolicitation_id());
+    	DadosSecretaria dadosSecretaria = dadosSecretariaRepository.buscaPorNome(atendimento.getSecretaria());
+    	dadosSecretaria.setQtd_chamados(dadosSecretaria.getQtd_chamados().add(BigDecimal.ONE));
+    	em.merge(dadosSecretaria);
     }
     
   

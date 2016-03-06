@@ -13,7 +13,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @Table(name="monitoramento")
 @Entity
-public class Monitoramento implements Serializable {
+public class Contestacao implements Serializable {
 	
 	
 	@Id
@@ -21,28 +21,7 @@ public class Monitoramento implements Serializable {
 	private Long id;
 	
 	private String solicitation_id;
-	private String cell;
-	private String email;
-	private String mobile;
-	
-	public String getCell() {
-		return cell;
-	}
-	public void setCell(String cell) {
-		this.cell = cell;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public String getMobile() {
-		return mobile;
-	}
-	public void setMobile(String mobile) {
-		this.mobile = mobile;
-	}
+	private String observacao;
 	
 	public String getSolicitation_id() {
 		return solicitation_id;
@@ -50,5 +29,13 @@ public class Monitoramento implements Serializable {
 	public void setSolicitation_id(String solicitation_id) {
 		this.solicitation_id = solicitation_id;
 	}
+	public String getObservacao() {
+		return observacao;
+	}
+	public void setObservacao(String observacao) {
+		this.observacao = observacao;
+	}
+	
+
 
 }
