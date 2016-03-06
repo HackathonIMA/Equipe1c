@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import br.com.bigbang.sevices.data.DadosSecretariaRepository;
@@ -16,20 +17,13 @@ import br.com.bigbang.sevices.model.DadosSecretaria;
 @RequestScoped
 public class DadosSecretariaResourceRESTService {
 
+	@Inject
+	private DadosSecretariaRepository repository;
 
-   
-    @Inject
-    private DadosSecretariaRepository repository;
-
-  
-
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<DadosSecretaria> listaTodos() {
-        return repository.buscaTodos();
-    }
-
-  
-
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<DadosSecretaria> listaTodos(@QueryParam("secretaria") String secretaria,@QueryParam("ano") int ano,@QueryParam("mes") int mes) {
+		return repository.buscaPorNome(secretaria, ano, mes);
+	}
 
 }

@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @SuppressWarnings("serial")
 @XmlRootElement
-@Table(name="sum_secretaria")
+@Table(name="summ_secretaria")
 @Entity
 public class DadosSecretaria implements Serializable {
 	private String nome;
