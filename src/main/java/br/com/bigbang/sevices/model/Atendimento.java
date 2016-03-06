@@ -37,6 +37,8 @@ public class Atendimento implements Serializable {
 	private String secretaria;
 	private String nomeRegiao;
 	private String nomeRegional;
+	private BigDecimal questionado ;
+	private BigDecimal numeroSolicitacao ;
 	public String getID() {
 		return ID;
 	}
@@ -162,6 +164,18 @@ public class Atendimento implements Serializable {
 	}
 	public void setNomeRegional(String nomeRegional) {
 		this.nomeRegional = nomeRegional;
+	}
+	public BigDecimal getQuestionado() {
+		return questionado;
+	}
+	public void setQuestionado(BigDecimal questionado) {
+		this.questionado = questionado;
+	}
+	public BigDecimal getNumeroSolicitacao() {
+		return numeroSolicitacao;
+	}
+	public void setNumeroSolicitacao(BigDecimal numeroSolicitacao) {
+		this.numeroSolicitacao = numeroSolicitacao;
 	}
 	
 }
