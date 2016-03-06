@@ -12,6 +12,7 @@ import javax.ws.rs.core.MediaType;
 
 import br.com.bigbang.sevices.data.MonitoramentoRepository;
 import br.com.bigbang.sevices.model.Monitoramento;
+import br.com.bigbang.sevices.service.MonitoramentoRegitration;
 
 @Path("/monitoramento")
 @RequestScoped
@@ -19,11 +20,14 @@ public class MonitoramentoRESTService {
 
 	@Inject
 	MonitoramentoRepository monitoramentoRepository;
+	
+	@Inject
+	MonitoramentoRegitration regitration;
 
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	public void criarMonitoramento(Monitoramento monitoramento) {
-		monitoramentoRepository.criar(monitoramento);
+		regitration.criar(monitoramento);
 	}
 
 	@GET

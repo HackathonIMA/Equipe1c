@@ -14,11 +14,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package br.com.bigbang.sevices.data;
+package br.com.bigbang.sevices.service;
 
 import java.util.List;
 
-import javax.enterprise.context.ApplicationScoped;
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -27,19 +27,18 @@ import javax.persistence.criteria.Root;
 
 import br.com.bigbang.sevices.model.Monitoramento;
 
-@ApplicationScoped
-public class MonitoramentoRepository {
+@Stateless
+public class MonitoramentoRegitration {
 
     @Inject
     private EntityManager em;
 
-    
-    public List<Monitoramento> buscaTodos() {
-        CriteriaBuilder cb = em.getCriteriaBuilder();
-        CriteriaQuery<Monitoramento> criteria = cb.createQuery(Monitoramento.class);
-        Root<Monitoramento> dados = criteria.from(Monitoramento.class);
-        criteria.select(dados).orderBy(cb.asc(dados.get("id")));
-        return em.createQuery(criteria).getResultList();
+ 
+
+    public void criar(Monitoramento monitoramento) {
+        em.persist(monitoramento);
     }
+    
+  
 
 }
