@@ -11,13 +11,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @SuppressWarnings("serial")
 @XmlRootElement
-@Table
+@Table(name="contestacao")
 @Entity
 public class Contestacao implements Serializable {
 	
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
 	private String solicitation_id;

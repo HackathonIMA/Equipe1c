@@ -12,7 +12,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @SuppressWarnings("serial")
 @Entity
 @XmlRootElement
-@Table
+@Table(name="atendimento")
 public class Atendimento implements Serializable {
 
 	@Id
